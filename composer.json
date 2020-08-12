@@ -1,0 +1,22 @@
+{
+    "name": "firusvictor/instagramapi",
+    "version": "1.0.0",
+    "description": "An easy-to-use PHP Class for accessing Instagram's API.",
+    "keywords": ["instagram", "php", "api", "web", "insta"],
+    "type": "library",
+    "homepage": "https://github.com/firusvictor/instagramapi",
+    "license": "MIT",
+    "author": "Firus Victor <firus.victor@gmail.com>",
+    "require": {
+      "php": ">=7.2"
+    },
+    "autoload": {
+      "psr-4": {
+        "InstaLite\\": "src/InstaLite/"
+      }
+    },
+    "support": {
+      "email": "firus.victor@gmail.com"
+    },
+    "minimum-stability": "dev"
+}
