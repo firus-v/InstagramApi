@@ -1,6 +1,6 @@
 {
     "name": "firusvictor/instagramapi",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "An easy-to-use PHP Class for accessing Instagram's API.",
     "keywords": ["instagram", "php", "api", "web", "insta"],
     "type": "library",

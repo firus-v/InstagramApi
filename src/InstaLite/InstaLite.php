@@ -286,17 +286,22 @@ class InstaLite
      * isSubscriptionByName - Checks if the user has a hashtag in recent posts
      *
      * @param string $username user name instagram
-     * @return boolean result of checking
+     * @return array result of checking
      * @example isSubscriptionByName
      *  - `isSubscriptionByName('firus.victor') - return status, if user 'firus.victor' - app subscriber`
      */
     public function isSubscriptionByName($username){
-        $response = Request::get('https://www.instagram.com/' . $username . '/?__a=1')
+        $user = Request::get('https://www.instagram.com/' . $username . '/?__a=1')
                 ->json(true)
             ['graphql']
-            ['user']
-            ['follows_viewer']?? [];
-        return $response;
+            ['user'] ?? [];
+        if(!$user){
+            return ['status'=> false, 'msg'=> 'user_not_found'];
+        }
+        if($user['is_private']){
+            return ['status'=> false, 'msg'=> 'profile_is_private'];
+        }
+        return ['status'=> $user['follows_viewer']];
     }
 
     /**

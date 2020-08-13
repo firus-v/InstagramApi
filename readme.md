@@ -1,8 +1,6 @@
-# INSTAGRAM API InstaLite [![License][packagist-license]][license-url]
-> **easy-to-use class for working with instagram, minimal number of features**
+# INSTAGRAM API  [![License][packagist-license]][license-url]
 
 [![Downloads][packagist-downloads]][packagist-url]
-[![Telegram][Telegram-image]][Telegram-url]
 
 - [Installation](#Installation)
 - [Example](#Example)
@@ -15,19 +13,27 @@
 ## Installation
 **Using Composer:**
 ```
-composer require tioffs/instalite
+composer require firusvictor/instagramapi
 ```
 ## Example
 ```php
 require_once __DIR__ . '/vendor/autoload.php';
 use InstaLite;
+
 $instagram = new InstaLite("username", "password", "proxy");
+
 /** search user (return array standart instagram) **/
 $user = $instagram->searchUser('alex')->id();
-/** search user (return array user id [1,2,3]) **/
-$user = $instagram->searchUser('alex')->all();
+
+/** check #tag on user wall **/
+$is_tag = $instagram->isHashtagByName('alex', 'tag')->all();
+
+/** check user subscription on this server profile **/
+$is_tag = $instagram->isSubscriptionByName('alex')->all();
+
 /** send photo **/
 $instagram->uploadPhoto(__DIR__ . '/img.jpg', 'text #hashtag');
+
 /** send message direct **/
 $instagram->sendMessage('text message', [1233, 1233, 1223]);
 ```
@@ -103,14 +109,13 @@ $instagram = new InstaLite("username", "password", "http://login:password@ip:por
 
 ----
 
-Made with &#9829; from the [@tioffs][tioffs-url]
+[firus.victor@gmail.com][tioffs-url]
 
-[tioffs-url]: https://timlab.ru/
+[tioffs-url]: mailto:firus.victor@gmail.com
 [license-url]: https://github.com/tioffs/instalite/blob/master/LICENSE
 
 [telegram-url]: https://t.me/joinchat/C9JmzQ-fc3SKXI0D-9h-uw
-[telegram-image]: https://img.shields.io/badge/Telegram-Join%20Chat-blue.svg?style=flat
 
-[packagist-url]: https://packagist.org/packages/tioffs/instalite
-[packagist-license]: https://img.shields.io/github/license/tioffs/instalite
-[packagist-downloads]: https://img.shields.io/packagist/dt/tioffs/instalite
+[packagist-url]: https://packagist.org/packages/firusvictor/instagramapi
+[packagist-license]: https://img.shields.io/github/license/firusvictor/instagramapi
+[packagist-downloads]: https://img.shields.io/packagist/dt/firusvictor/instagramapi
