@@ -235,18 +235,24 @@ class InstaLite
      *
      * @param string $username user name instagram
      * @param string $tag tag to check without #
-     * @return boolean result of checking
+     * @return array result of checking
      * @example isHashtagByName
      *  - `isHashtagByName('firus.victor', 'hello_world') - return status, if hashtag #hello_world tag is present in recent posts`
      */
     public function isHashtagByName($username, $tag){
-        $response = Request::get('https://www.instagram.com/' . $username . '/?__a=1')
+        $user = Request::get('https://www.instagram.com/' . $username . '/?__a=1')
                 ->json(true)
             ['graphql']
             ['user']
-            ['edge_owner_to_timeline_media']
-            ['edges'] ?? [];
+             ?? [];
         //Извлекаем все подкписи у последних постов
+        if(!$user){
+            return ['status'=> false, 'msg'=> 'user_not_found'];
+        }
+        if($user['is_private']){
+            return ['status'=> false, 'msg'=> 'profile_is_private'];
+        }
+        $response = $user['edge_owner_to_timeline_media']['edges'];
         $captionList = [];
         $test = [];
         if($response){
@@ -260,21 +266,20 @@ class InstaLite
                 }
             }
             // проходим по подписям и ищем хэштег
-            $isHashtag = false;
             foreach ($captionList as $caption){
                 $matches = null;
                 $returnValue = preg_match_all('/(?<!\\S)#\\w+(?!\\S)/u', $caption, $matches);
                 if($returnValue && count($matches[0])){
                     foreach ($matches[0] as $match){
                         if(mb_strtolower($match) === '#' . mb_strtolower($tag)){
-                            $isHashtag = true;
+                            return ['status'=> true];
                         }
                     }
                 }
             }
-            return $isHashtag;
+            return ['status'=> false, 'msg'=> 'tag_not_found'];
         }
-        return false;
+        return ['status'=> false, 'msg'=> 'user_not_found'];
     }
 
     /**
