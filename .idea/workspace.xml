@@ -6,8 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96a75580-bc5d-4480-92f8-c621422d3721" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InstaLite/InstaLite.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/InstaLite/InstaLite.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
       <workItem from="1597221122311" duration="709000" />
       <workItem from="1597317230462" duration="380000" />
       <workItem from="1597588776950" duration="1721000" />
-      <workItem from="1597592098092" duration="389000" />
+      <workItem from="1597592098092" duration="435000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1597221963594</created>
@@ -78,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597319007361</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix Exception">
+      <created>1597592510259</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1597592510259</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,7 +105,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init commit" />
     <MESSAGE value="fix readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix readme.md" />
+    <MESSAGE value="fix Exception" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix Exception" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597592460725">
@@ -110,10 +117,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597222761654" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1597319046284">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1597592513508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597319046284" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597592513508" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1597589388466">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
