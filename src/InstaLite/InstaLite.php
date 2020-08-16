@@ -84,7 +84,7 @@ class InstaLite
             $this->__updateSession();
             return $this->__log('user login success, user id: ' . $response['userId']);
         }
-        throw new Exception("Error Authorization");
+        return ;
     }
 
     /**
@@ -135,7 +135,8 @@ class InstaLite
     {
         if (!is_dir($this->sessionPatch)) {
             if (!mkdir($this->sessionPatch, 0755)) {
-                throw new Exception("Error create folder {$this->sessionPatch}/session");
+                return;
+//                throw new Exception("Error create folder {$this->sessionPatch}/session");
             }
         }
         file_put_contents($this->sessionPatch . $this->username, json_encode([
@@ -217,7 +218,7 @@ class InstaLite
             'include_reel'  => true
         ];
         $response = Request::get('https://www.instagram.com/web/search/topsearch/?' . http_build_query($query))
-            ->json(true)['users'] ?? [];
+                ->json(true)['users'] ?? [];
         $this->userList = [];
         foreach ($response as $user) {
             $this->userList[] = $user['user'];
@@ -244,7 +245,7 @@ class InstaLite
                 ->json(true)
             ['graphql']
             ['user']
-             ?? [];
+            ?? [];
         //Извлекаем все подкписи у последних постов
         if(!$user){
             return ['status'=> false, 'msg'=> 'user_not_found'];
